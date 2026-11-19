@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f0f7f7;
+  --color-brand-100: #dcebea;
+  --color-brand-200: #bdd8d7;
+  --color-brand-300: #93bfbe;
+  --color-brand-400: #5f9e9f;
+  --color-brand-500: #397d82;
+  --color-brand-600: #28666d;
+  --color-brand-700: #20545c;
+  --color-brand-800: #16434d;
+  --color-brand-900: #103741;
+  --color-brand-950: #092a32;
+
+  --color-accent-50: #fff5ef;
+  --color-accent-100: #ffe7d9;
+  --color-accent-200: #ffd0b6;
+  --color-accent-300: #f4ad8c;
+  --color-accent-400: #e98a68;
+  --color-accent-500: #d96f50;
+  --color-accent-600: #bd563b;
+  --color-accent-700: #99422f;
+  --color-accent-800: #783624;
+  --color-accent-900: #5f2d22;
+
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-50 font-sans text-brand-950 antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent-200 text-brand-950;
+  }
+}
+
+@layer utilities {
+  .page-enter-active,
+  .page-leave-active {
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
